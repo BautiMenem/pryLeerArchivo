@@ -20,7 +20,7 @@ namespace pryLeerArchivo
 
         private void btnGrabar_Click(object sender, EventArgs e)
         { 
-            StreamWriter ManejoArchivo = new StreamWriter("ArchivoNuevo.txt", true);
+            StreamWriter ManejoArchivo = new StreamWriter("ArchivoNuevo.txt", false);
             string Texto = txtGrabar.Text;
             using (StreamWriter sw = ManejoArchivo)
             {
@@ -74,23 +74,23 @@ namespace pryLeerArchivo
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //StreamReader ManejoArchivo = new StreamReader("ArchivoNuevo.txt");
+            StreamReader ManejoArchivo = new StreamReader("ArchivoNuevo.txt");
 
-            //while (ManejoArchivo.EndOfStream == false)
-            //{
-            //    string Auxiliar = ManejoArchivo.ReadLine();
+            while (ManejoArchivo.EndOfStream == false)
+            {
+                string Auxiliar = ManejoArchivo.ReadLine();
 
-            //    if (Auxiliar.Contains(txtDato.Text))
-            //    {
-            //        MessageBox.Show("Encontrado");
-            //        break;
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("No encontrado");
-            //    }
+                if (Auxiliar.Contains(txtDato.Text))
+                {
+                    MessageBox.Show("Encontrado");
+                    break;
+                }
+                else
+                {
+                    MessageBox.Show("No encontrado");
+                }
 
-            //}
+            }
         }
     }
 }
